@@ -6,7 +6,7 @@ const reportURL = async (req, res, next) => {
   console.log('URL: ',url);
   try {
     if (url) {
-      const url = await URL.create({ url, safe: false });
+      const urlCreate = await URL.create({ url, safe: false });
       return res.status(201).json({ ack: true, msg: "Reported Successfully" });
     } else return res.status(404).json({ ack: false, err: "No URL provided" });
   } catch (err) {
