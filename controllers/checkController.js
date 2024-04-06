@@ -3,11 +3,11 @@ const URL = require("../model/urldb");
 const urlcheck = async (req, res, next) => {
   const { url } = req.body;
   console.log("URL:", url);
-  
+
   try {
     if (url) {
-      const status = await URL.find({ url });
-
+      const status = await URL.findOne({ url });
+      console.log(status);
       if (status) {
         return res
           .status(200)
