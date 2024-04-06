@@ -1,10 +1,14 @@
 const express = require('express');
 const router = express();
 
-const checkRoute = require('./checkRoute');
-const reportRoute = require('./reportRoute');
+const {urlcheck} = require('../controllers/checkController');
+const { reportURL } = require("../controllers/reportController");
 
-router.use('/check',checkRoute);
-router.use('/report', reportRoute);
+router.post("/check", urlcheck);
+router.post("/report", reportURL);
+
+router.get('/',(req,res)=>{
+    res.status(200).send("Hello Developer!!")
+});
 
 module.exports = router;
