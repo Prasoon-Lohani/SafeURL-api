@@ -11,7 +11,7 @@ const urlcheck = async (req, res, next) => {
       if (status) {
         return res
           .status(200)
-          .json({ ack: true, msg: "Request Successfull", status: status.safe });
+          .json({ ack: true, msg: "Request Successfull", safe: status.safe });
       } else
         return res
           .status(500)
